@@ -1,4 +1,5 @@
-<div class="container shadow border-start border-end mt-5 mb-5">
+<x-guest-layout>
+<div class="container rounded shadow bg-teal-light text-teal-dark border-start border-end mt-5 mb-5">
 <form class="row" method="POST" action="upload.php" enctype="multipart/form-data">
   <h1 class="text-form-blue fw-bolder text-center display-5">Wireless Printing</h1>
                         
@@ -42,8 +43,9 @@
 </div>
       <div class="mb-3">
 
-<button class="btn bg-form-blue hvr-grow text-white mt-4 float-end dropshadow" type="submit" name="upload" value="Upload">Submit</button>
+<button class="btn bg-teal-dark hvr-grow text-white mt-4 float-end dropshadow" type="submit" name="upload" value="Upload">Submit</button>
           
       </div>
   </form>
 </div>
+</x-guest-layout>

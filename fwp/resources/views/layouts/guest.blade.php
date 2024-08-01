@@ -5,28 +5,59 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
-        <title>{{ config('app.name', 'Laravel') }}</title>
+        <title>{{ config('app.name', 'Wireless Printing Hub') }}</title>
 
-        <!-- Fonts -->
-        <link rel="preconnect" href="https://fonts.bunny.net">
-        <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-        
-
+        <!-- CSS -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+        <link href="{{ asset('css/styles.css') }}" rel="stylesheet">
+        <link href="{{ asset('css/hover.css') }}" rel="stylesheet">
         <!-- Scripts -->
-        @vite(['resources/css/app.css', 'resources/js/app.js'])
+        
     </head>
-    <body class="font-sans text-gray-900 antialiased">
-        <div class="min-h-screen flex flex-col sm:justify-center items-center pt-6 sm:pt-0 bg-gray-100">
+    <body class="">
+        <div class="d-flex flex-column min-vh-100">
             <div>
-                <a href="/">
-                   
-                </a>
+                <nav class="navbar navbar-expand-lg bg-teal-light shadow">
+                    <div class="container-fluid pt-1 pb-1">
+                      <a class="navbar-brand text-teal-dark fw-bolder" href="/">Wireless Printing Hub</a>
+                      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                      </button>
+                      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                          <li class="nav-item me-2">
+                            <a class="nav-link text-teal-dark hvr-grow fw-bolder hvr-hover"  href="/">Print</a>
+                          </li>
+                          <li class="nav-item me-2">
+                            <a class="nav-link text-teal-dark hvr-grow fw-bolder hvr-hover"  href="/register">Register</a>
+                          </li>
+                          <li class="nav-item">
+                            <a class="nav-link text-teal-dark hvr-grow fw-bolder hvr-hover"  href="/login">Login</a>
+                          </li>
+                          <li class="nav-item">
+                            <a class="nav-link text-teal-dark hvr-grow fw-bolder hvr-hover"  href="#">Contact</a>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                  </nav>
             </div>
 
-            <div class="w-full sm:max-w-md mt-6 px-6 py-4 bg-white shadow-md overflow-hidden sm:rounded-lg">
+            <div class="w-full sm:max-w-md mt-6 px-6 py-4 shadow-md overflow-hidden sm:rounded-lg">
                 {{ $slot }}
             </div>
+            <footer class="py-3 mt-auto bg-teal-light shadow-footer">
+                <ul class="nav justify-content-center">
+                  <li class="nav-item "><a href="/" class="nav-link px-2 text-decoration-none text-teal-dark fw-bolder hvr-grow">Print</a></li>
+                  <li class="nav-item "><a href="/about" class="nav-link px-2 text-decoration-none text-teal-dark fw-bolder hvr-grow">Register</a></li>
+                  <li class="nav-item "><a href="/services" class="nav-link px-2 text-decoration-none text-teal-dark fw-bolder hvr-grow">Login</a></li>
+                  <li class="nav-item "><a href="/contact" class="nav-link px-2 text-decoration-none text-teal-dark fw-bolder hvr-grow">Contact</a></li>
+                </ul>
+                <div class="col-lg-4 offset-lg-4 col-8 offset-2 col-sm-6 offset-sm-3 col-md-4 offset-md-4 border-bottom border-2 border-light pb-3 mb-3"> 
+                </div>
+                <p class="text-center text-decoration-none text-teal-dark fw-bolder ">© 2024 www.freewareforlibraries.org</p>
+              </footer>
         </div>
     </body>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 </html>

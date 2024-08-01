@@ -1,97 +1,126 @@
 <x-guest-layout>
-    <form method="POST" action="{{ route('register') }}">
+    <div class="container rounded text-teal-dark bg-teal-light col-12 col-sm-12 col-md-12 col-lg-6 offset-lg-3 shadow">
+    <form method="POST" class="ps-4 pe-4" action="{{ route('register') }}">
         @csrf
-        <div class="row">
-       <div class="col-12 col-sm-6"> <img src="{{ asset('logo.png') }}" class=""/></div>
-       <div class="col-12 col-sm-6"> <h1 class="text-center display-5 mb-4 fw-bolder">Register <br> your <br> Library</h1></div>
+        <div class="row mt-0">
+       <div class="col-12 col-sm-12"> <h1 class="text-center mb-4 fw-bolder">Registration</h1></div>
         </div>
         <!-- Name -->
-        <div>
-            <x-input-label for="name" :value="__('Name')" />
-            <x-text-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required autofocus autocomplete="name" />
-            <x-input-error :messages="$errors->get('name')" class="mt-2" />
-        </div>
-
+        <div class="form-floating mb-3">
+            <input type="text" class="form-control" name="name" id="name" required autofocus>
+            <label for="name">Name</label>
+          </div>
           <!-- Library -->
-          <div>
-            <x-input-label for="library" :value="__('Library')" />
-            <x-text-input id="library" class="block mt-1 w-full" type="text" name="library" :value="old('library')" required autofocus autocomplete="library" />
-            <x-input-error :messages="$errors->get('library')" class="mt-2" />
-        </div>
-
+        <div class="form-floating mb-3">
+            <input type="text" class="form-control" name="library" id="library" required autofocus>
+            <label for="library">Library Name</label>
+          </div>
           <!-- Phone -->
-          <div>
-            <x-input-label for="phone" :value="__('Phone')" />
-            <x-text-input id="phone" class="block mt-1 w-full" type="text" name="phone" :value="old('phone')" required autofocus autocomplete="phone" />
-            <x-input-error :messages="$errors->get('name')" class="mt-2" />
-        </div>
-
+          <div class="form-floating mb-3">
+            <input type="phone" class="form-control" name="phone" id="phone" required autofocus>
+            <label for="phone">Phone</label>
+          </div>
          <!-- addr -->
-         <div>
-            <x-input-label for="addr" :value="__('Address')" />
-            <x-text-input id="addr" class="block mt-1 w-full" type="text" name="addr" :value="old('addr')" required autofocus autocomplete="addr" />
-            <x-input-error :messages="$errors->get('name')" class="mt-2" />
-        </div>
+         <div class="form-floating mb-3">
+            <input type="text" class="form-control" name="addr" id="addr" required autofocus>
+            <label for="Address">Address</label>
+          </div>
 
          <!-- City -->
-         <div>
-            <x-input-label for="city" :value="__('City')" />
-            <x-text-input id="city" class="block mt-1 w-full" type="text" name="city" :value="old('city')" required autofocus autocomplete="city" />
-            <x-input-error :messages="$errors->get('name')" class="mt-2" />
-        </div>
+         <div class="form-floating mb-3">
+            <input type="text" class="form-control" name="city" id="city" required autofocus>
+            <label for="City">City</label>
+          </div>
 
          <!-- State -->
-         <div>
-            <x-input-label for="state" :value="__('State')" />
-            <x-text-input id="state" class="block mt-1 w-full" type="text" name="state" :value="old('state')" required autofocus autocomplete="state" />
-            <x-input-error :messages="$errors->get('name')" class="mt-2" />
-        </div>
+         <div class="form-floating mb-3">
+            <select class="form-select" id="state" name="state">
+            <option value=""></option>
+            <option value="AK">Alaska</option>
+            <option value="AL">Alabama</option>
+            <option value="AR">Arkansas</option>
+            <option value="AZ">Arizona</option>
+            <option value="CA">California</option>
+            <option value="CO">Colorado</option>
+            <option value="CT">Connecticut</option>
+            <option value="DC">District of Columbia</option>
+            <option value="DE">Delaware</option>
+            <option value="FL">Florida</option>
+            <option value="GA">Georgia</option>
+            <option value="HI">Hawaii</option>
+            <option value="IA">Iowa</option>
+            <option value="ID">Idaho</option>
+            <option value="IL">Illinois</option>
+            <option value="IN">Indiana</option>
+            <option value="KS">Kansas</option>
+            <option value="KY">Kentucky</option>
+            <option value="LA">Louisiana</option>
+            <option value="MA">Massachusetts</option>
+            <option value="MD">Maryland</option>
+            <option value="ME">Maine</option>
+            <option value="MI">Michigan</option>
+            <option value="MN">Minnesota</option>
+            <option value="MO">Missouri</option>
+            <option value="MS">Mississippi</option>
+            <option value="MT">Montana</option>
+            <option value="NC">North Carolina</option>
+            <option value="ND">North Dakota</option>
+            <option value="NE">Nebraska</option>
+            <option value="NH">New Hampshire</option>
+            <option value="NJ">New Jersey</option>
+            <option value="NM">New Mexico</option>
+            <option value="NV">Nevada</option>
+            <option value="NY">New York</option>
+            <option value="OH">Ohio</option>
+            <option value="OK">Oklahoma</option>
+            <option value="OR">Oregon</option>
+            <option value="PA">Pennsylvania</option>
+            <option value="PR">Puerto Rico</option>
+            <option value="RI">Rhode Island</option>
+            <option value="SC">South Carolina</option>
+            <option value="SD">South Dakota</option>
+            <option value="TN">Tennessee</option>
+            <option value="TX">Texas</option>
+            <option value="UT">Utah</option>
+            <option value="VA">Virginia</option>
+            <option value="VT">Vermont</option>
+            <option value="WA">Washington</option>
+            <option value="WI">Wisconsin</option>
+            <option value="WV">West Virginia</option>
+            <option value="WY">Wyoming</option>
+            </select>
+            <label class="" for="state">State</label> 
+            </div>                          
 
          <!-- Zip -->
-         <div>
-            <x-input-label for="zip" :value="__('Zip')" />
-            <x-text-input id="zip" class="block mt-1 w-full" type="text" name="zip" :value="old('zip')" required autofocus autocomplete="zip" />
-            <x-input-error :messages="$errors->get('name')" class="mt-2" />
-        </div>
+         <div class="form-floating mb-3">
+            <input type="text" class="form-control" name="zip" id="zip" required autofocus>
+            <label for="zip">Zip</label>
+          </div>
 
         <!-- Email Address -->
-        <div class="mt-4">
-            <x-input-label for="email" :value="__('Email')" />
-            <x-text-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autocomplete="username" />
-            <x-input-error :messages="$errors->get('email')" class="mt-2" />
-        </div>
+        <div class="form-floating mb-3">
+            <input type="email" class="form-control" name="email" id="email" required autofocus>
+            <label for="email">Email</label>
+          </div>
 
         <!-- Password -->
-        <div class="mt-4">
-            <x-input-label for="password" :value="__('Password')" />
-
-            <x-text-input id="password" class="block mt-1 w-full"
-                            type="password"
-                            name="password"
-                            required autocomplete="new-password" />
-
-            <x-input-error :messages="$errors->get('password')" class="mt-2" />
-        </div>
+        <div class="form-floating mb-3">
+            <input type="password" class="form-control" name="password" id="password" required autofocus>
+            <label for="password">Password</label>
+          </div>
 
         <!-- Confirm Password -->
-        <div class="mt-4">
-            <x-input-label for="password_confirmation" :value="__('Confirm Password')" />
+        <div class="form-floating mb-3">
+            <input type="password" class="form-control" name="password_confirmation" id="password_confirmation" required autofocus>
+            <label for="password">Password</label>
+          </div>
 
-            <x-text-input id="password_confirmation" class="block mt-1 w-full"
-                            type="password"
-                            name="password_confirmation" required autocomplete="new-password" />
-
-            <x-input-error :messages="$errors->get('password_confirmation')" class="mt-2" />
-        </div>
-
-        <div class="flex items-center justify-end mt-4">
-            <a class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" href="{{ route('login') }}">
-                {{ __('Already registered?') }}
-            </a>
-
-            <x-primary-button class="ms-4">
-                {{ __('Register') }}
-            </x-primary-button>
+        <div class="flex items-center justify-end mt-4 d-flex pb-4">
+            <button class="btn ms-auto bg-teal-dark fw-bolder text-white hvr-grow dropshadow rounded">
+               Register
+            </button>
         </div>
     </form>
+</div>
 </x-guest-layout>
