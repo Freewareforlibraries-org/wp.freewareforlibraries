@@ -1,0 +1,87 @@
+html body {
+
+    background-color:rgb(255, 203, 154, .3) !important;
+  
+  }
+
+  .dropshadow{
+    -ms-box-shadow: 0px 3px 5px #444444 !important;
+  -moz-box-shadow: 0px 3px 5px #444444 !important;
+  -webkit-box-shadow: 0px 3px 5px #444444 !important;
+  box-shadow: 0px 3px 5px #444444 !important;
+  }
+  
+  .text-teal-light {
+  
+    color: #D2E8E3;
+  }
+  
+  .text-teal-mid {
+  
+    color: #0F6466;
+  }
+  
+  .text-teal-dark {
+  
+    color: #2C3532;
+  }
+  
+  .text-cream-dark {
+  
+    color: #D8B08C;
+  }
+  
+  .text-cream-light {
+  
+    color: #FFCB9A;
+  }
+  
+  
+  
+  .bg-teal-light {
+  
+    background-color: #D2E8E3;
+  }
+  
+  .bg-teal-mid {
+  
+    background-color: #0F6466;
+  }
+  
+  .bg-teal-dark {
+  
+    background-color: #2C3532;
+  }
+  
+  .bg-cream-dark {
+  
+    background-color: #D8B08C;
+  }
+  
+  .bg-cream-light {
+  
+    background-color:#FFCB9A !important;
+  }
+  
+  .shadow-footer{
+    margin-right:0px; /* Set to 0 if you don't want shadow at the right side */
+    margin-left:0px; /* Set to 20px if you want shadow at the left side */
+    margin-top:20px; /* Set to 20px if you want shadow at the top side */
+    margin-bottom:0px; /* Set to 20px if you want shadow at the bottom side */
+    box-shadow: 0 .5rem 4rem rgba(0, 0, 0, 0.25);
+  }
+  
+  .fade-in {
+    opacity: 0;
+    animation: fadeIn 1s ease-in-out forwards;
+  }
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  
