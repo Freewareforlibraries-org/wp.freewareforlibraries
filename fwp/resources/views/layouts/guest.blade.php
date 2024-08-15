@@ -40,7 +40,7 @@
                             <a class="nav-link text-teal-dark hvr-grow fw-bolder hvr-hover"  href="/login">Login</a>
                           </li>
                           <li class="nav-item">
-                            <a class="nav-link text-teal-dark hvr-grow fw-bolder hvr-hover"  href="#">Contact</a>
+                            <a class="nav-link text-teal-dark hvr-grow fw-bolder hvr-hover"  href="/contact">Contact</a>
                           </li>
                         </ul>
                       </div>

@@ -1,6 +1,6 @@
     <form method="post" action="{{ route('profile.update') }}" class="mt-6 space-y-6">
         @csrf
-        @method('post')
+        @method('patch')
                 <h1 class="text-teal-dark text-center fw-bolder mb-3">Edit Profile</h1>
                 <input type="hidden" value="{{$user->id}}" />
                   <!-- name -->
@@ -10,7 +10,7 @@
                   </div>
                   <!-- email -->
                   <div class="form-floating mb-3">
-                    <input type="text" class="form-control" name="name" id="name" value="{{$user->email}}" required autofocus>
+                    <input type="text" class="form-control" name="email" id="email" value="{{$user->email}}" required autofocus>
                     <label for="library">Name</label>
                   </div>
                   <!-- Library -->
