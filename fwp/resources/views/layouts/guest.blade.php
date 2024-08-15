@@ -12,7 +12,12 @@
         <link href="{{ asset('css/styles.css') }}" rel="stylesheet">
         <link href="{{ asset('css/hover.css') }}" rel="stylesheet">
         <!-- Scripts -->
-        
+        <script src="https://www.google.com/recaptcha/api.js"></script>
+        <script>
+            function onSubmit(token) {
+                document.getElementById("printForm").submit();
+            }
+        </script>
     </head>
     <body class="">
         <div class="d-flex flex-column min-vh-100">

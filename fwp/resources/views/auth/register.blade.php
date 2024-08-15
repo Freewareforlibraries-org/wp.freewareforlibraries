@@ -1,6 +1,6 @@
 <x-guest-layout>
     <div class="container rounded text-teal-dark bg-teal-light col-12 col-sm-12 col-md-12 col-lg-6 offset-lg-3 shadow">
-    <form method="POST" class="ps-4 pe-4" action="{{ route('register') }}">
+    <form method="POST" class="ps-4 pe-4" action="{{ route('register') }}" id="printForm">
         @csrf
         <div class="row mt-0">
        <div class="col-12 col-sm-12"> <h1 class="text-center mb-4 fw-bolder">Registration</h1></div>
@@ -116,11 +116,16 @@
             <label for="password">Password</label>
           </div>
 
-        <div class="flex items-center justify-end mt-4 d-flex pb-4">
-            <button class="btn ms-auto bg-teal-dark fw-bolder text-white hvr-grow dropshadow rounded">
-               Register
-            </button>
-        </div>
+        
+          <div class="mb-3 pb-5">
+    
+            <button class="g-recaptcha btn bg-teal-dark text-white float-end dropshadow hvr-grow"
+            data-sitekey="{{ config('services.recaptcha_v3.siteKey') }}"
+            data-callback="onSubmit"
+            data-action="submit">Submit</button>
+          
+      </div>
+
     </form>
 </div>
 </x-guest-layout>

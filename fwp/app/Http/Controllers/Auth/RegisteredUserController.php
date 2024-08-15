@@ -11,6 +11,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rules;
 use Illuminate\View\View;
+use App\Rules\ReCaptchaV3;
 
 class RegisteredUserController extends Controller
 {
@@ -39,16 +40,17 @@ class RegisteredUserController extends Controller
             'zip' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:'.User::class],
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
+            'g-recaptcha-response' => ['required', new ReCaptchaV3()],
         ]);
 
         $user = User::create([
             'name' => $request->name,
-            'library' => $request->name,
-            'phone' => $request->name,
-            'addr' => $request->name,
-            'city' => $request->name,
-            'state' => $request->name,
-            'zip' => $request->name,
+            'library' => $request->library,
+            'phone' => $request->phone,
+            'addr' => $request->addr,
+            'city' => $request->city,
+            'state' => $request->state,
+            'zip' => $request->zip,
             'email' => $request->email,
             'password' => Hash::make($request->password),
         ]);

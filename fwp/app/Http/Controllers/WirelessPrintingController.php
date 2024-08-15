@@ -4,14 +4,20 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
-use App\Models\wp;
+use App\Models\WirelessPrinting;
+use App\Models\User;
 use DB;
+use App\Rules\ReCaptchaV3;
+use Illuminate\Support\Facades\Auth;
 
-class wpController extends Controller
+
+
+
+class WirelessPrintingController extends Controller
 {
     public function index(){
-        $prints = wp::orderBy('id', 'desc')->get();       
-        return view('wp.index')->with(['prints' => $prints]);       
+        $users = User::orderBy('id', 'desc')->get();       
+        return view('user.index')->with(['users' => $users]);       
     }
 
     public function store(Request $request){
@@ -23,8 +29,9 @@ class wpController extends Controller
             'copies' => 'nullable',
             'location' => 'required',
             'libnumber' => 'nullable',
+            'g-recaptcha-response' => ['required', new ReCaptchaV3()],
         ]);
-        
+
         $patron = $request->input('patron');
         $phone = $request->input('phone');
         $email = $request->input('email');
@@ -35,14 +42,14 @@ class wpController extends Controller
             if($request)
             {
             $allowedfileExtension=['pdf','jpg','png','docx', 'txt'];
-            $file = $request->file('file');
-            $filename = time().'_'.$request->file->getClientOriginalName();
-            $extension = $request->file->getClientOriginalExtension();
+            $file = $request->file('print');
+            $filename = time().'_'.$request->file('print')->getClientOriginalName();
+            $extension = $request->file('print')->getClientOriginalExtension();
             $check=in_array($extension,$allowedfileExtension);
             //dd($check);
             if($check)
             {
-            $request->file->storeAs('./public/wp', $filename);
+            $request->print->storeAs('./public/prints', $filename);
             $user = DB::table('wp')->insert([
                 'patron' => $patron,
                 'phone' => $phone,
@@ -58,26 +65,28 @@ class wpController extends Controller
 
                         
                       }
-                      return redirect(route('cr.wp'))->with('success', 'print uploaded successfully!');
+                      return redirect(route('user.index'))->with('success', 'print uploaded successfully!');
 
 }
 else
 {
-    return redirect(route('cr.wp'))->with('error', 'print failed!');
+    return redirect(route('user.index'))->with('error', 'print failed!');
 }
     }
 
     public function landing(){
-        $wps = wp::orderBy('id', 'desc')->get();
+        $library =  Auth()->user()->library;
 
-        return view('admin.wp')->with(['wps' => $wps]);        
+        $wps = WirelessPrinting::orderBy('id', 'desc')->where('location', '=', $library)->get();
+
+        return view('dashboard')->with(['wps' => $wps]);        
     }
 
-    public function delete(wp $wp){
+    public function delete(WirelessPrinting $wp){
         $file = $wp->file;
-        if(Storage::exists('./public/wp/'.$file)){
-            Storage::delete('./public/wp/'.$file);
-            Storage::delete('wp/'.$file);
+        if(Storage::exists('./public/prints/'.$file)){
+            Storage::delete('./public/prints/'.$file);
+            Storage::delete('prints/'.$file);
             $wp->delete();
 
           
@@ -86,7 +95,27 @@ else
         }
        
 
-        return redirect(route('admin.wp'))->with('success', 'Print deleted Succesffully!');
+        return redirect(route('dashboard'))->with('success', 'Print deleted Succesffully!');
+    }
+
+    public function getFile(WirelessPrinting $id)
+    {
+        $library =  Auth()->user()->library;
+
+        $loc = $id->location;
+
+        if($library == $loc) {
+
+        $filename = ('app/public/prints/'. $id->file);
+
+            //dd($library);
+        return response()->download(storage_path($filename), null, [], null);
+
+        }
+
+        else {
+            echo 'you are not allowed';
+        }
     }
 
 
