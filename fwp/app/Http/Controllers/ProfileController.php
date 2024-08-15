@@ -8,8 +8,6 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\View\View;
-use App\Models\User;
-use DB;
 
 class ProfileController extends Controller
 {
@@ -23,42 +21,29 @@ class ProfileController extends Controller
         ]);
     }
 
+    public function editp(Request $request): View
+    {
+        return view('profile.password', [
+            'user' => $request->user(),
+        ]);
+    }
+
+    public function editd(Request $request): View
+    {
+        return view('profile.delete', [
+            'user' => $request->user(),
+        ]);
+    }
+
+
     /**
      * Update the user's profile information.
      */
-    public function update(Request $request): RedirectResponse
+    public function update(ProfileUpdateRequest $request): RedirectResponse
     {
-        $request->validate([
-            'name' => ['required', 'string', 'max:255'],
-            'library' => ['required', 'string', 'max:255'],
-            'phone' => ['required', 'string', 'max:255'],
-            'addr' => ['required', 'string', 'max:255'],
-            'city' => ['required', 'string', 'max:255'],
-            'state' => ['required', 'string', 'max:255'],
-            'zip' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:'.User::class],
-        ]);
-        
-        $id = $request->input('id');
-        $name = $request->input('name');
-        $library = $request->input('library');
-        $phone = $request->input('phone');
-        $addr = $request->input('addr');
-        $city = $request->input('city');
-        $state = $request->input('state');
-        $zip = $request->input('zip');
-        $email = $request->input('email');
+        $request->user()->fill($request->validated());
 
-        $user = DB::table('user')->update([
-            'name' => $name,
-            'library' => $library,
-            'phone' => $phone,
-            'addr' => $addr,
-            'city' => $city,
-            'state' => $state,
-            'zip' => $zip,
-            'email' => $email,
-        ])->whwere('id', '=', $id);
+        $request->user()->save();
 
         return Redirect::route('profile.edit')->with('status', 'profile-updated');
     }

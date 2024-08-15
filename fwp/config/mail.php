@@ -53,6 +53,17 @@ return [
             'transport' => 'ses',
         ],
 
+       'office365mail' => [
+            'transport' => 'office365mail',
+            'client_id' => env('OFFICE365MAIL_CLIENT_ID'),
+            'client_secret' => env('OFFICE365MAIL_SECRET'),
+            'tenant' => env('OFFICE365MAIL_CLIENT_TENANT'),
+            'from' => [
+                'address' => env('MAIL_FROM_ADDRESS'),
+                'name' => env('MAIL_FROM_NAME'),
+            ],
+        ],
+
         'postmark' => [
             'transport' => 'postmark',
             // 'message_stream_id' => env('POSTMARK_MESSAGE_STREAM_ID'),

@@ -11,7 +11,10 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rules;
 use Illuminate\View\View;
+use App\Mail\AdminAlertReg;
+use App\Mail\PatronAlertReg;
 use App\Rules\ReCaptchaV3;
+use Illuminate\Support\Facades\Mail;
 
 class RegisteredUserController extends Controller
 {
@@ -56,6 +59,14 @@ class RegisteredUserController extends Controller
         ]);
 
         event(new Registered($user));
+
+        $adminEmail = 'adam.branscum@icloud.com';
+
+        $customerEmail = $request->input('email');
+
+        Mail::to($adminEmail)->send(new AdminAlertReg($user));
+
+        Mail::to($customerEmail)->send(new PatronAlertReg($user));
 
         Auth::login($user);
 

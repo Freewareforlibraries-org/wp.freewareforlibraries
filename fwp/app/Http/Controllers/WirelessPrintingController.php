@@ -9,6 +9,9 @@ use App\Models\User;
 use DB;
 use App\Rules\ReCaptchaV3;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\PatronAlertPrint;
+
 
 
 
@@ -16,7 +19,7 @@ use Illuminate\Support\Facades\Auth;
 class WirelessPrintingController extends Controller
 {
     public function index(){
-        $users = User::orderBy('id', 'desc')->get();       
+        $users = User::orderBy('id', 'desc')->where('usertype', '=', 'user')->get();       
         return view('user.index')->with(['users' => $users]);       
     }
 
@@ -50,7 +53,7 @@ class WirelessPrintingController extends Controller
             if($check)
             {
             $request->print->storeAs('./public/prints', $filename);
-            $user = DB::table('wp')->insert([
+            $print = DB::table('wp')->insert([
                 'patron' => $patron,
                 'phone' => $phone,
                 'email' => $email,
@@ -61,11 +64,14 @@ class WirelessPrintingController extends Controller
                 'created_at' => Now(),
                 'updated_at' => Now(),
             ]);
-
-
+            $customerEmail = $email;
+    
+            Mail::to($customerEmail)->send(new PatronAlertPrint($request));
                         
+            return redirect(route('user.index'))->with('success', 'print uploaded successfully!');
                       }
-                      return redirect(route('user.index'))->with('success', 'print uploaded successfully!');
+                    
+              
 
 }
 else
@@ -75,11 +81,20 @@ else
     }
 
     public function landing(){
+        $usertype=Auth()->user()->usertype;
+
+        if($usertype=='user'){
         $library =  Auth()->user()->library;
 
         $wps = WirelessPrinting::orderBy('id', 'desc')->where('location', '=', $library)->get();
 
-        return view('dashboard')->with(['wps' => $wps]);        
+        return view('dashboard')->with(['wps' => $wps]);    
+        }
+        else {
+
+            return view('user.pending');
+
+        }    
     }
 
     public function delete(WirelessPrinting $wp){
