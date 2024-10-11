@@ -6,7 +6,7 @@
         @csrf
 
         <div class="row mt-0">
-            <div class="col-12 col-sm-12"> <h1 class="text-center mb-4 fw-bolder">Staff Login</h1></div>
+            <div class="col-12 col-sm-12"> <h1 class="text-center mb-4 fw-bolder">Library Login</h1></div>
         </div>
 
         <!-- Email Address -->

@@ -12,7 +12,7 @@
         </style>
 
     <div class="container shadow bg-light mt-4 mb-5">
-     <h1 class="text-center text-teal-dark fw-bolder display-1">WP Admin</h1> 
+     <h1 class="text-center text-teal-dark fw-bolder display-1">Print Release Terminal</h1> 
         <!-- Error divs -->
         <div class="d-flex">
             @if(session()->has('success')) 
