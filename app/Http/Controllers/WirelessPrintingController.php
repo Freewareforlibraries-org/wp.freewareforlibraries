@@ -11,6 +11,8 @@ use App\Rules\ReCaptchaV3;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\PatronAlertPrint;
+use Symfony\Component\Process\Process;
+use Symfony\Component\Process\Exception\ProcessFailedException;
 
 
 
@@ -44,40 +46,81 @@ class WirelessPrintingController extends Controller
 
             if($request)
             {
-            $allowedfileExtension=['pdf','jpg','png','docx', 'txt'];
+            $allowedfileExtension=['pdf','jpg','png','docx', 'doc', 'xls', 'xlsx', 'ppt', 'pptx', 'odt', 'ods', 'odp', 'txt'];
             $file = $request->file('print');
-            $filename = time().'_'.$request->file('print')->getClientOriginalName();
             $extension = $request->file('print')->getClientOriginalExtension();
             $check=in_array($extension,$allowedfileExtension);
             //dd($check);
             if($check)
             {
-            $request->print->storeAs('./public/prints', $filename);
-            $print = DB::table('wp')->insert([
-                'patron' => $patron,
-                'phone' => $phone,
-                'email' => $email,
-                'copies' => $copies,
-                'location' => $location,
-                'libnumber' => $libnumber,
-                'file' => $filename,
-                'created_at' => Now(),
-                'updated_at' => Now(),
-            ]);
-            $customerEmail = $email;
-    
-            Mail::to($customerEmail)->send(new PatronAlertPrint($request));
-                        
-            return redirect(route('user.index'))->with('success', 'print uploaded successfully!');
+                $timestamp = time();
+                $originalFileName = $request->file('print')->getClientOriginalName();
+                $baseName = pathinfo($originalFileName, PATHINFO_FILENAME);
+                $tempFileName = $timestamp.'_'.$originalFileName;
+                $pdfFileName = $timestamp.'_'.$baseName.'.pdf';
+
+                // Store the uploaded file temporarily
+                $filePath = $request->print->storeAs('./public/prints', $tempFileName);
+
+                // Convert to PDF if not already a PDF or image
+                if(!in_array($extension, ['pdf', 'jpg', 'png', 'txt'])) {
+                    $this->convertToPdf($tempFileName, $pdfFileName);
+                    // Delete the original file after conversion
+                    Storage::delete('./public/prints/'.$tempFileName);
+                    $finalFileName = $pdfFileName;
+                } else {
+                    $finalFileName = $tempFileName;
+                }
+
+                $print = DB::table('wp')->insert([
+                    'patron' => $patron,
+                    'phone' => $phone,
+                    'email' => $email,
+                    'copies' => $copies,
+                    'location' => $location,
+                    'libnumber' => $libnumber,
+                    'file' => $finalFileName,
+                    'created_at' => Now(),
+                    'updated_at' => Now(),
+                ]);
+                $customerEmail = $email;
+
+                Mail::to($customerEmail)->send(new PatronAlertPrint($request));
+
+                return redirect(route('user.index'))->with('success', 'print uploaded successfully!');
                       }
-                    
-              
+
+
 
 }
 else
 {
     return redirect(route('user.index'))->with('error', 'print failed!');
 }
+    }
+
+    private function convertToPdf($inputFileName, $outputFileName)
+    {
+        $inputPath = storage_path('app/public/prints/'.$inputFileName);
+        $outputPath = storage_path('app/public/prints/'.$outputFileName);
+
+        $process = new Process([
+            'libreoffice',
+            '--headless',
+            '--convert-to',
+            'pdf',
+            '--outdir',
+            storage_path('app/public/prints'),
+            $inputPath
+        ]);
+
+        $process->setTimeout(300); // 5 minute timeout
+
+        try {
+            $process->mustRun();
+        } catch (ProcessFailedException $e) {
+            throw new \Exception('PDF conversion failed: '.$e->getMessage());
+        }
     }
 
     public function landing(){
