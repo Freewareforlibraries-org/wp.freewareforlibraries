@@ -9,7 +9,7 @@
 
         <!-- Tailwind CSS -->
         <script src="https://cdn.tailwindcss.com"></script>
-        <link rel="stylesheet" href="{{ asset('css/styles.css?v3') }}">
+        <link rel="stylesheet" href="{{ asset('css/styles.css?v4') }}">
         <!-- Scripts -->
         <script src="https://www.google.com/recaptcha/api.js"></script>
         <script>
