@@ -24,7 +24,7 @@
                                 <button type="submit" class="text-gray-700 hover-gradient-text hover:gradient-text">Sign Out</button>
                             </form>
                         @else
-                            <a href="{{ route('login') }}" class="gradient-border gradient-text hover:gradient-text px-4 py-2 rounded inline-block">Sign In</a>
+                            <a href="{{ route('login') }}" class="sign-in-btn">Sign In</a>
                         @endauth
                     </div>
                 </div>
@@ -37,9 +37,9 @@
                 <div class="text-center">
                     <h2 class="text-5xl font-bold mb-4">Simple Wireless Printing for Libraries</h2>
                     <p class="text-xl text-blue-100 mb-8">Enable patrons to print documents from anywhere.</p>
-                    <div class="flex gap-4 justify-center">
-                        <a href="{{ route('library.register.form') }}" class="border-2 border-white text-white px-8 py-3 rounded-lg font-semibold hover:bg-white hover:gradient-text transition">Register Your Library</a>
-                        <a href="{{ route('login') }}" class="border-2 border-white text-white px-8 py-3 rounded-lg font-semibold hover:bg-white hover:gradient-text transition">Staff Login</a>
+                    <div class="flex gap-4 justify-center flex-wrap">
+                        <a href="{{ route('library.register.form') }}" class="btn-hero border-2 border-white text-white px-8 py-3 rounded-lg font-semibold">Register Your Library</a>
+                        <a href="{{ route('login') }}" class="btn-hero border-2 border-white text-white px-8 py-3 rounded-lg font-semibold">Staff Login</a>
                     </div>
                 </div>
             </div>
@@ -51,7 +51,7 @@
                 <h3 class="text-3xl font-bold text-center text-gray-900 mb-12">How It Works</h3>
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                     <!-- Feature 1 -->
-                    <div class="bg-gray-50 rounded-lg p-8 border border-gray-200">
+                    <div class="feature-box bg-gray-50 rounded-lg p-8 border border-gray-200 cursor-pointer">
                         <div class="w-12 h-12 gradient-bg rounded-lg flex items-center justify-center mb-4 text-white text-xl font-bold">
                             1
                         </div>
@@ -60,7 +60,7 @@
                     </div>
 
                     <!-- Feature 2 -->
-                    <div class="bg-gray-50 rounded-lg p-8 border border-gray-200">
+                    <div class="feature-box bg-gray-50 rounded-lg p-8 border border-gray-200 cursor-pointer">
                         <div class="w-12 h-12 gradient-bg rounded-lg flex items-center justify-center mb-4 text-white text-xl font-bold">
                             2
                         </div>
@@ -69,7 +69,7 @@
                     </div>
 
                     <!-- Feature 3 -->
-                    <div class="bg-gray-50 rounded-lg p-8 border border-gray-200">
+                    <div class="feature-box bg-gray-50 rounded-lg p-8 border border-gray-200 cursor-pointer">
                         <div class="w-12 h-12 gradient-bg rounded-lg flex items-center justify-center mb-4 text-white text-xl font-bold">
                             3
                         </div>
