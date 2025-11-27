@@ -49,6 +49,17 @@ class LoginRequest extends FormRequest
             ]);
         }
 
+        // Check if the authenticated user is approved
+        $user = Auth::user();
+        if ($user && $user->approval_status !== 'approved') {
+            Auth::logout();
+            RateLimiter::hit($this->throttleKey());
+
+            throw ValidationException::withMessages([
+                'email' => 'Your account is pending approval. Please check your email for updates.',
+            ]);
+        }
+
         RateLimiter::clear($this->throttleKey());
     }
 
