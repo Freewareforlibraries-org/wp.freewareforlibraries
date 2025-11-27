@@ -32,8 +32,8 @@
         </nav>
 
         <!-- Hero Section -->
-        <section class="flex-1 gradient-bg text-white min-h-screen">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-64 flex items-center justify-center min-h-screen">
+        <section class="flex-1 gradient-bg text-white min-vh-96">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-64 flex items-center justify-center min-vh-96">
                 <div class="text-center">
                     <h2 class="text-5xl font-bold mb-4">Simple Wireless Printing for Libraries</h2>
                     <p class="text-xl text-blue-100 mb-8">Enable patrons to print documents from anywhere.</p>
