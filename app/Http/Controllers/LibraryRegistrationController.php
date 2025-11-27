@@ -50,7 +50,6 @@ class LibraryRegistrationController extends Controller
             'library_uid' => $uid,
             'account_type' => 'admin',
             'approval_status' => 'pending',
-            'usertype' => 'admin',
             'library' => $validated['library_name'],
             'phone' => $validated['contact_phone'],
             'addr' => '',

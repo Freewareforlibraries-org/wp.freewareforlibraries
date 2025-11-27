@@ -77,13 +77,11 @@ class LibraryAdminController extends Controller
             'library_uid' => $library->uid,
             'account_type' => 'staff',
             'approval_status' => 'approved',
-            'usertype' => 'user',
             'library' => $library->name,
             'addr' => '',
             'city' => $library->city,
             'state' => $library->state,
             'zip' => '',
-            'email_verified_at' => now(),
         ]);
 
         return redirect()->route('library.dashboard')->with('success', 'Staff account created successfully!');
