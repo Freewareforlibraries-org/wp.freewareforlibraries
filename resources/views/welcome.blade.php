@@ -32,7 +32,7 @@
         </nav>
 
         <!-- Hero Section -->
-        <section class="flex-1 gradient-bg text-white min-h-96">
+        <section class="flex-1 gradient-bg text-white min-vh-96">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-32 flex items-center justify-center min-h-96">
                 <div class="text-center">
                     <h2 class="text-5xl font-bold mb-4">Simple Wireless Printing for Libraries</h2>
@@ -123,9 +123,30 @@
     </section>
 
     <!-- Footer -->
-    <footer>
-        <div class="container">
-            <p>&copy; 2024 www.communityprint.org</p>
+    <footer class="gradient-bg text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Community Print</h3>
+                    <p class="text-blue-100">Simple wireless printing solutions for libraries.</p>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Quick Links</h4>
+                    <ul class="space-y-2 text-blue-100">
+                        <li><a href="{{ route('library.register.form') }}" class="hover:text-white transition">Register Library</a></li>
+                        <li><a href="{{ route('login') }}" class="hover:text-white transition">Staff Login</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Contact</h4>
+                    <p class="text-blue-100">
+                        <a href="mailto:webmaster@freewareforlibraries.org" class="hover:text-white transition">webmaster@freewareforlibraries.org</a>
+                    </p>
+                </div>
+            </div>
+            <div class="border-t border-blue-500 pt-8 text-center text-blue-100">
+                <p>&copy; 2024 <a href="https://www.communityprint.org" class="hover:text-white transition">Community Print</a> - All rights reserved</p>
+            </div>
         </div>
     </footer>
 
