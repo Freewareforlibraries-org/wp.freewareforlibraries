@@ -6,6 +6,11 @@ use App\Http\Controllers\LibraryRegistrationController;
 use App\Http\Controllers\LibraryAdminController;
 use Illuminate\Support\Facades\Route;
 
+// Welcome / Home Page
+Route::get('/', function () {
+    return view('welcome');
+})->name('home');
+
 // Dashboard (staff view their prints)
 Route::get('/admin', [WirelessPrintingController::class, 'landing'])->middleware(['auth', 'verified'])->name('dashboard');
 
