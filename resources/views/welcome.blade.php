@@ -18,13 +18,13 @@
                     </div>
                     <div class="flex gap-4">
                         @auth
-                            <a href="{{ route('dashboard') }}" class="text-gray-700 hover-gradient-text hover:gradient-text">Dashboard</a>
+                            <a href="{{ route('dashboard') }}" class="sign-in-btn border-blue-grad">Dashboard</a>
                             <form method="POST" action="{{ route('logout') }}" class="inline">
                                 @csrf
-                                <button type="submit" class="text-gray-700 hover-gradient-text hover:gradient-text">Sign Out</button>
+                                <button type="submit" class="sign-in-btn border-blue-grad">Sign Out</button>
                             </form>
                         @else
-                            <a href="{{ route('login') }}" class="sign-in-btn">Sign In</a>
+                            <a href="{{ route('login') }}" class="sign-in-btn border-blue-grad">Sign In</a>
                         @endauth
                     </div>
                 </div>

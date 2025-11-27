@@ -235,3 +235,7 @@ html body {
   .sign-in-btn:hover::before {
     left: 0;
   }
+
+  .border-blue-grad {
+    color: rgb(31, 41, 55);
+  }
