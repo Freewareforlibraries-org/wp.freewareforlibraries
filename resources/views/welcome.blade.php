@@ -24,7 +24,7 @@
                                 <button type="submit" class="text-gray-700 hover-gradient-text hover:gradient-text">Sign Out</button>
                             </form>
                         @else
-                            <a href="{{ route('login') }}" class="text-gray-700 hover-gradient-text hover:gradient-text">Sign In</a>
+                            <a href="{{ route('login') }}" class="gradient-border gradient-text px-4 py-2 rounded">Sign In</a>
                         @endauth
                     </div>
                 </div>
