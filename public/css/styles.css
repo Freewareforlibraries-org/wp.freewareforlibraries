@@ -124,6 +124,7 @@ html body {
   .gradient-border {
     position: relative;
     display: inline-block;
+     border-radius: 0.5rem;
     border: 2px solid transparent;
     background: linear-gradient(white, white) padding-box, linear-gradient(135deg, #2563eb 0%, #1e40af 100%) border-box;
   }
