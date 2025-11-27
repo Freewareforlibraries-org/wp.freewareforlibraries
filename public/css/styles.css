@@ -203,7 +203,7 @@ html body {
     font-size: 1rem;
     font-weight: 600;
     border: 2px solid;
-    border-color: rgb(31, 41, 55);
+    border-color:  #2563eb;
     border-radius: 0.5rem;
     background-color: transparent;
     color: rgb(31, 41, 55);
@@ -236,6 +236,3 @@ html body {
     left: 0;
   }
 
-  .border-blue-grad {
-    color: rgb(31, 41, 55);
-  }
