@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Community Print</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="{{ asset('css/styles.css?v2') }}">
+    <link rel="stylesheet" href="{{ asset('css/styles.css?v3') }}">
 </head>
 <body class="bg-gray-50">
     <div class="min-h-screen flex flex-col">
@@ -24,7 +24,7 @@
                                 <button type="submit" class="text-gray-700 hover-gradient-text hover:gradient-text">Sign Out</button>
                             </form>
                         @else
-                            <a href="{{ route('login') }}" class="gradient-border gradient-text px-4 py-2 rounded inline-block">Sign In</a>
+                            <a href="{{ route('login') }}" class="gradient-border gradient-text hover:gradient-text px-4 py-2 rounded inline-block">Sign In</a>
                         @endauth
                     </div>
                 </div>
