@@ -29,6 +29,7 @@ class User extends Authenticatable
         'library_uid',
         'account_type',
         'approval_status',
+        'usertype',
     ];
 
     /**

@@ -57,7 +57,6 @@ class LibraryRegistrationController extends Controller
             'city' => $validated['city'],
             'state' => $validated['state'],
             'zip' => '',
-            'email_verified_at' => now(),
         ]);
 
         return redirect('/')->with('success', 'Library registration submitted! Awaiting admin approval.');
