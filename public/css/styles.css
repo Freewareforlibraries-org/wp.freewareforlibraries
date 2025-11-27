@@ -125,8 +125,7 @@ html body {
     position: relative;
     display: inline-block;
      border-radius: 0.5rem;
-    border: 2px solid transparent;
-    background: linear-gradient(135deg, #2563eb 0%, #1e40af 100%) border-box;
+    border: 2px solid linear-gradient(135deg, #2563eb 0%, #1e40af 100%);
   }
 
   .gradient-border.gradient-text:hover {
