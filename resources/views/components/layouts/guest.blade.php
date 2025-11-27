@@ -49,7 +49,7 @@
             </div>
 
             <div class="w-full mt-6 px-6 py-4">
-                @yield('content')
+                {{ $slot }}
             </div>
             <footer class="py-3 mt-auto bg-teal-light shadow-footer">
                 <ul class="nav justify-content-center">
@@ -58,7 +58,7 @@
                   <li class="nav-item "><a href="/services" class="nav-link px-2 text-decoration-none text-teal-dark fw-bolder hvr-grow">Login</a></li>
                   <li class="nav-item "><a href="/contact" class="nav-link px-2 text-decoration-none text-teal-dark fw-bolder hvr-grow">Contact</a></li>
                 </ul>
-                <div class="col-lg-4 offset-lg-4 col-8 offset-2 col-sm-6 offset-sm-3 col-md-4 offset-md-4 border-bottom border-2 border-light pb-3 mb-3"> 
+                <div class="col-lg-4 offset-lg-4 col-8 offset-2 col-sm-6 offset-sm-3 col-md-4 offset-md-4 border-bottom border-2 border-light pb-3 mb-3">
                 </div>
                 <p class="text-center text-decoration-none text-teal-dark fw-bolder ">© 2024 www.freewareforlibraries.org</p>
               </footer>

@@ -1,8 +1,4 @@
-@extends('layouts.app')
-
-@section('title', 'Library Admin Dashboard')
-
-@section('content')
+<x-layouts.app>
 <div class="max-w-7xl mx-auto py-8 px-4 sm:px-6 lg:px-8">
     <!-- Header with Breadcrumbs -->
     <div class="mb-8">
@@ -190,4 +186,4 @@
         </div>
     </div>
 </div>
-@endsection
+</x-layouts.app>

@@ -1,8 +1,4 @@
-@extends('layouts.app')
-
-@section('title', 'Edit Staff Account')
-
-@section('content')
+<x-layouts.app>
 <div class="max-w-md mx-auto py-6 sm:px-6 lg:px-8">
     <div class="bg-white rounded-lg shadow">
         <div class="px-6 py-4 border-b border-gray-200">
@@ -65,4 +61,4 @@
         </div>
     </div>
 </div>
-@endsection
+</x-layouts.app>

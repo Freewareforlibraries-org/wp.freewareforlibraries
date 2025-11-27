@@ -1,5 +1,4 @@
 <x-layouts.guest>
-
 <div class="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-50 to-indigo-50 py-12 px-4 sm:px-6 lg:px-8">
     <div class="w-full max-w-lg">
         <div class="bg-white rounded-lg shadow-lg p-8">

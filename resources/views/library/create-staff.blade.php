@@ -1,8 +1,4 @@
-@extends('layouts.app')
-
-@section('title', 'Create Staff Account')
-
-@section('content')
+<x-layouts.app>
 <div class="max-w-2xl mx-auto py-8 px-4 sm:px-6 lg:px-8">
     <!-- Breadcrumbs -->
     <div class="flex items-center gap-2 text-sm text-gray-600 mb-6">
@@ -71,4 +67,4 @@
         </div>
     </div>
 </div>
-@endsection
+</x-layouts.app>
