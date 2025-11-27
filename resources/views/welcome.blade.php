@@ -32,8 +32,8 @@
         </nav>
 
         <!-- Hero Section -->
-        <section class="flex-1 gradient-bg text-white">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+        <section class="flex-1 gradient-bg text-white min-h-96">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-32 flex items-center justify-center min-h-96">
                 <div class="text-center">
                     <h2 class="text-5xl font-bold mb-4">Simple Wireless Printing for Libraries</h2>
                     <p class="text-xl text-blue-100 mb-8">Enable patrons to print documents from anywhere.</p>
@@ -52,7 +52,8 @@
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                     <!-- Feature 1 -->
                     <div class="bg-gray-50 rounded-lg p-8 border border-gray-200">
-                        <div class="w-12 h-12 gradient-bg rounded-lg flex items-center justify-center mb-4">
+                        <div class="w-12 h-12 gradient-bg rounded-lg flex items-center justify-center mb-4 text-white text-xl font-bold">
+                            1
                         </div>
                         <h4 class="text-lg font-semibold text-gray-900 mb-2">Register Your Library</h4>
                         <p class="text-gray-600">Set up your library account with basic information and create an admin account for management.</p>
@@ -60,7 +61,8 @@
 
                     <!-- Feature 2 -->
                     <div class="bg-gray-50 rounded-lg p-8 border border-gray-200">
-                        <div class="w-12 h-12 gradient-bg rounded-lg flex items-center justify-center mb-4">
+                        <div class="w-12 h-12 gradient-bg rounded-lg flex items-center justify-center mb-4 text-white text-xl font-bold">
+                            2
                         </div>
                         <h4 class="text-lg font-semibold text-gray-900 mb-2">Manage Your Staff</h4>
                         <p class="text-gray-600">Create up to 5 staff accounts to manage print jobs and coordinate with your team.</p>
@@ -68,7 +70,8 @@
 
                     <!-- Feature 3 -->
                     <div class="bg-gray-50 rounded-lg p-8 border border-gray-200">
-                        <div class="w-12 h-12 gradient-bg rounded-lg flex items-center justify-center mb-4">
+                        <div class="w-12 h-12 gradient-bg rounded-lg flex items-center justify-center mb-4 text-white text-xl font-bold">
+                            3
                         </div>
                         <h4 class="text-lg font-semibold text-gray-900 mb-2">Accept Print Jobs</h4>
                         <p class="text-gray-600">Patrons submit documents via your library's custom subdomain link instantly.</p>
@@ -77,36 +80,41 @@
             </div>
         </section>
     <!-- Hosting Section -->
-    <section class="hosting-section">
-        <div class="container">
-            <div class="hosting-content">
+    <section class="bg-gray-100 py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
                 <div class="hosting-text">
-                    <h2>Ready for More?</h2>
-                    <p>You're using the Community Print freeware edition – great for getting started! We also offer a privately hosted version with advanced features.</p>
-                    <p>Get professional hosting, advanced integrations, and dedicated support to take your print services to the next level.</p>
-                    <p style="color: var(--dark); font-weight: 600;">Perfect for libraries wanting enterprise-level features without the complexity.</p>
+                    <h2 class="text-4xl font-bold text-gray-900 mb-6">Ready for More?</h2>
+                    <p class="text-lg text-gray-700 mb-4">You're using the Community Print freeware edition – great for getting started! We also offer a privately hosted version with advanced features.</p>
+                    <p class="text-lg text-gray-700 mb-4">Get professional hosting, advanced integrations, and dedicated support to take your print services to the next level.</p>
+                    <p class="text-lg font-semibold text-gray-900">Perfect for libraries wanting enterprise-level features without the complexity.</p>
                 </div>
 
-                <div class="hosting-card">
-                    <h3>Private Hosting</h3>
-                    <ul class="feature-list">
-                        <li>
-                            <span>Improved security</span>
+                <div class="bg-white rounded-lg shadow-lg p-8">
+                    <h3 class="text-2xl font-bold text-gray-900 mb-6">Enterprise Hosting</h3>
+                    <ul class="space-y-3 mb-8">
+                        <li class="flex items-start">
+                            <span class="gradient-text font-bold mr-3">✓</span>
+                            <span class="text-gray-700">Improved security</span>
                         </li>
-                        <li>
-                            <span>Unlimited Staff Accounts and Admin Accounts</span>
+                        <li class="flex items-start">
+                            <span class="gradient-text font-bold mr-3">✓</span>
+                            <span class="text-gray-700">Unlimited Staff Accounts and Admin Accounts</span>
                         </li>
-                        <li>
-                            <span>Custom Integrations</span>
+                        <li class="flex items-start">
+                            <span class="gradient-text font-bold mr-3">✓</span>
+                            <span class="text-gray-700">Custom Integrations</span>
                         </li>
-                        <li>
-                            <span>Advanced Reporting</span>
+                        <li class="flex items-start">
+                            <span class="gradient-text font-bold mr-3">✓</span>
+                            <span class="text-gray-700">Advanced Reporting</span>
                         </li>
-                        <li>
-                            <span>Priority Updates</span>
+                        <li class="flex items-start">
+                            <span class="gradient-text font-bold mr-3">✓</span>
+                            <span class="text-gray-700">Priority Updates</span>
                         </li>
                     </ul>
-                    <a href="mailto:webmaster@freewareforlibraries.org" class="btn">
+                    <a href="mailto:webmaster@freewareforlibraries.org" class="w-full bg-gradient-to-r from-blue-600 to-blue-800 text-white px-6 py-3 rounded-lg font-semibold text-center hover:from-blue-700 hover:to-blue-900 transition">
                         Contact Us Today
                     </a>
                 </div>
