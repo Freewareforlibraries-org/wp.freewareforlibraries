@@ -4,7 +4,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\WirelessPrintingController;
 use App\Http\Controllers\LibraryRegistrationController;
 use App\Http\Controllers\LibraryAdminController;
-use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Route; 
 
 // Welcome / Home Page
 Route::get('/', function () {
