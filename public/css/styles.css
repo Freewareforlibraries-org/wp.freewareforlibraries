@@ -129,34 +129,21 @@ html body {
   }
 
   .gradient-border.gradient-text {
-    background: linear-gradient(white, white) padding-box, linear-gradient(135deg, #2563eb 0%, #1e40af 100%) border-box;
-    color: transparent;
-    -webkit-background-clip: text, border-box;
-    background-clip: text, border-box;
-  }
-
-  .gradient-border.gradient-text {
     position: relative;
     display: inline-block;
-    border: 2px solid;
-    border-image: linear-gradient(135deg, #2563eb 0%, #1e40af 100%) 1;
-  }
-
-  .gradient-border.gradient-text {
-    background: linear-gradient(135deg, #2563eb 0%, #1e40af 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
     padding: 0.5rem 1rem;
     border: 2px solid transparent;
-    background-image:
-      linear-gradient(135deg, #2563eb 0%, #1e40af 100%),
-      linear-gradient(135deg, #2563eb 0%, #1e40af 100%);
-    background-origin: border-box;
-    background-clip: padding-box, border-box;
+    background:
+      linear-gradient(white, white) padding-box,
+      linear-gradient(135deg, #2563eb 0%, #1e40af 100%) border-box;
+    color: transparent;
+    -webkit-background-clip: text;
+    background-clip: text;
+    background-image: linear-gradient(135deg, #2563eb 0%, #1e40af 100%);
+    -webkit-text-fill-color: transparent;
   }
 
   .gradient-border.gradient-text:hover {
-    transform: scale(1.05);
-    transition: transform 0.2s ease;
+    filter: brightness(1.15);
+    transition: filter 0.2s ease;
   }
