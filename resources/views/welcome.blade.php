@@ -84,10 +84,10 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
                 <div class="hosting-text">
-                    <h2 class="text-4xl font-bold text-gray-900 mb-6">Ready for More?</h2>
-                    <p class="text-lg text-gray-700 mb-4">You're using the Community Print freeware edition – great for getting started! We also offer a privately hosted version with advanced features.</p>
-                    <p class="text-lg text-gray-700 mb-4">Get professional hosting, advanced integrations, and dedicated support to take your print services to the next level.</p>
-                    <p class="text-lg font-semibold text-gray-900">Perfect for libraries wanting enterprise-level features without the complexity.</p>
+                    <h2 class="text-4xl font-bold gradient-text mb-6">Ready for More?</h2>
+                    <p class="text-lg text-grey-700 mb-4">You're using the Community Print freeware edition – great for getting started! We also offer a privately hosted version with advanced features.</p>
+                    <p class="text-lg text-grey-800 mb-4">Get professional hosting, advanced integrations, and dedicated support to take your print services to the next level.</p>
+                    <p class="text-lg font-semibold text-grey-900">Perfect for libraries wanting enterprise-level features without the complexity.</p>
                 </div>
 
                 <div class="bg-white rounded-lg shadow-lg p-8">
