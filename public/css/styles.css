@@ -134,6 +134,7 @@ html body {
     padding: 0.5rem 1rem;
     border: 2px solid;
     border-image: linear-gradient(135deg, #2563eb 0%, #1e40af 100%) 1;
+    border-radius: 0.5rem;
     background: linear-gradient(135deg, #2563eb 0%, #1e40af 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
