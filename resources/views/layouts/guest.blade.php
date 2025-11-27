@@ -48,7 +48,7 @@
                   </nav>
             </div>
 
-            <div class="w-full sm:max-w-md mt-6 px-6 py-4 shadow-md overflow-hidden sm:rounded-lg">
+            <div class="w-full mt-6 px-6 py-4">
                 {{ $slot }}
             </div>
             <footer class="py-3 mt-auto bg-teal-light shadow-footer">
