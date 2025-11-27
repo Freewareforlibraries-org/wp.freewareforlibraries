@@ -14,6 +14,9 @@ Route::get('/', function () {
 // Dashboard (staff view their prints)
 Route::get('/admin', [WirelessPrintingController::class, 'landing'])->middleware(['auth', 'verified'])->name('dashboard');
 
+// User prints index
+Route::get('/prints', [WirelessPrintingController::class, 'index'])->name('user.index');
+
 // Library Registration (public)
 Route::get('/library/register', [LibraryRegistrationController::class, 'showRegistrationForm'])->name('library.register.form');
 Route::post('/library/register', [LibraryRegistrationController::class, 'register'])->name('library.register');

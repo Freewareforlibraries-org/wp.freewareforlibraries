@@ -22,8 +22,8 @@ use Symfony\Component\Process\Exception\ProcessFailedException;
 class WirelessPrintingController extends Controller
 {
     public function index(){
-        $users = User::orderBy('id', 'desc')->where('usertype', '=', 'user')->get();       
-        return view('user.index')->with(['users' => $users]);       
+        $prints = WirelessPrinting::orderBy('id', 'desc')->get();
+        return view('user.index')->with(['prints' => $prints]);
     }
 
     public function store(Request $request){
