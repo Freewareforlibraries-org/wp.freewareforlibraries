@@ -38,7 +38,7 @@
                     <h2 class="text-5xl font-bold mb-4">Simple Wireless Printing for Libraries</h2>
                     <p class="text-xl text-blue-100 mb-8">Enable patrons to print documents from anywhere.</p>
                     <div class="flex gap-4 justify-center">
-                        <a href="{{ route('library.register.form') }}" class="bg-white gradient-text px-8 py-3 rounded-lg font-semibold hover:bg-blue-50 transition">Register Your Library</a>
+                        <a href="{{ route('library.register.form') }}" class="border-2 border-white text-white px-8 py-3 rounded-lg font-semibold hover:bg-white hover:gradient-text transition">Register Your Library</a>
                         <a href="{{ route('login') }}" class="border-2 border-white text-white px-8 py-3 rounded-lg font-semibold hover:bg-white hover:gradient-text transition">Staff Login</a>
                     </div>
                 </div>
