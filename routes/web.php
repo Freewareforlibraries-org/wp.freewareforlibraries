@@ -1,12 +1,29 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
-use App\Http\Controllers\ContactController;
 use App\Http\Controllers\WirelessPrintingController;
+use App\Http\Controllers\LibraryRegistrationController;
+use App\Http\Controllers\LibraryAdminController;
 use Illuminate\Support\Facades\Route;
 
+// Dashboard (staff view their prints)
 Route::get('/admin', [WirelessPrintingController::class, 'landing'])->middleware(['auth', 'verified'])->name('dashboard');
 
+// Library Registration (public)
+Route::get('/library/register', [LibraryRegistrationController::class, 'showRegistrationForm'])->name('library.register.form');
+Route::post('/library/register', [LibraryRegistrationController::class, 'register'])->name('library.register');
+
+// Library Admin (authenticated)
+Route::middleware('auth')->group(function () {
+    Route::get('/library/dashboard', [LibraryAdminController::class, 'dashboard'])->name('library.dashboard');
+    Route::get('/library/staff/create', [LibraryAdminController::class, 'createStaffForm'])->name('library.staff.create');
+    Route::post('/library/staff', [LibraryAdminController::class, 'storeStaff'])->name('library.staff.store');
+    Route::get('/library/staff/{id}/edit', [LibraryAdminController::class, 'editStaff'])->name('library.staff.edit');
+    Route::patch('/library/staff/{id}', [LibraryAdminController::class, 'updateStaff'])->name('library.staff.update');
+    Route::delete('/library/staff/{id}', [LibraryAdminController::class, 'deleteStaff'])->name('library.staff.delete');
+});
+
+// Profile Management (authenticated)
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
@@ -15,12 +32,10 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-Route::get('/', [WirelessPrintingController::class, 'index'])->name('user.index');
-Route::post('/store', [WirelessPrintingController::class, 'store'])->name('store');
-Route::delete('/adminf/wp/{wp}/delete', [WirelessPrintingController::class, 'delete'])->name('wp.delete');
-Route::get('/storage/prints/{id}/check', [WirelessPrintingController::class, 'getFile'])->where('filename', '^[^/]+$')->middleware(['auth', 'verified']);
-
-Route::get('/contact', [ContactController::class, 'index'])->name('contact.index');
-Route::post('/contact/store', [ContactController::class, 'store'])->name('contact.store');
+// Subdomain (patron printing - public)
+Route::domain('{slug}.'.config('app.domain', 'localhost'))->group(function () {
+    Route::get('/', [WirelessPrintingController::class, 'subdomainForm'])->name('subdomain.form');
+    Route::post('/store', [WirelessPrintingController::class, 'subdomainStore'])->name('subdomain.store');
+});
 
 require __DIR__.'/auth.php';

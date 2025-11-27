@@ -17,7 +17,14 @@ class WirelessPrinting extends Model
         'location',
         'libnumber',
         'file',
+        'library_uid',
+        'library_id',
     ];
 
     protected $table = 'wp';
+
+    public function library()
+    {
+        return $this->belongsTo(Library::class);
+    }
 }

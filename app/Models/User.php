@@ -26,6 +26,9 @@ class User extends Authenticatable
         'zip',
         'email',
         'password',
+        'library_uid',
+        'account_type',
+        'approval_status',
     ];
 
     /**
@@ -49,5 +52,20 @@ class User extends Authenticatable
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
         ];
+    }
+
+    public function library()
+    {
+        return $this->belongsTo(Library::class);
+    }
+
+    public function isAdmin(): bool
+    {
+        return $this->account_type === 'admin';
+    }
+
+    public function isStaff(): bool
+    {
+        return $this->account_type === 'staff';
     }
 }
